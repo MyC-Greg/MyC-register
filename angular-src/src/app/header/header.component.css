@@ -1,0 +1,12 @@
+.navbar {
+    display: flex;
+}
+
+.navbar-brand{
+    justify-content: center;
+}
+
+img {
+    max-width: 15%;
+    height: auto;
+}
