@@ -21,6 +21,7 @@ mongoose.connection.on('error', (err)=>{
 
 const app = express();
 
+const usersAuth = require('./server/usersAuth_route');
 
 
 // Port Number
@@ -34,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Body Parser middleware
 app.use(bodyParser.json());
+app.use('/usersAuth', usersAuth);
 
 // Index Route
 app.get('/', (req, res) => {

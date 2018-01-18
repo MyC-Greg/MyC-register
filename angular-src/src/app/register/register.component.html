@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="subContainer">
+    <h2 class="titleRegister">Inscris-toi!</h2>
+    <form   class="login-form" 
+            [formGroup]="myForm" 
+            (ngSubmit)="onSubmit()"
+    >  
+      <input  type="text" 
+                class="form-control" 
+                placeholder="Vorname" 
+                aria-label="firstName"
+                formControlName="firstName">
+        <input  type="text" 
+                class="form-control" 
+                placeholder="Name" 
+                aria-label="lastName"
+                formControlName="lastName">
+        <input  type="text" 
+                class="form-control" 
+                placeholder="Land" 
+                aria-label="country"
+                formControlName="country">
+        <input  type="text" 
+                class="form-control" 
+                placeholder="Stadt" 
+                aria-label="city"
+                formControlName="city">
+        <input  type="text" 
+                class="form-control" 
+                placeholder="email addresse" 
+                aria-label="email"
+                formControlName="email">
+
+                  <div  *ngIf="isAlert"
+                        class="alert alert-warning alert-dismissible fade"
+                        [ngClass]="{show: isAlert}" 
+                        role="alert">
+                  Il semblerait que cet email soit déjà pris. <br>
+                  Essayez avec un autre email.                      
+                        <button 
+                              type="button" 
+                              class="close" 
+                              data-dismiss="alert" 
+                              aria-label="Close"
+                              (click)="closeAlert()">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+        <button type="submit" 
+                class="btn btn-primary"
+                [disabled]="!myForm.valid"
+                >S'inscrire</button>
+            </form>
+
+        <div  class="modal fade" 
+              [ngClass]="{'show': isShow}"
+              [ngStyle] = "{display: isShow? 'flex': 'none'}"
+              tabindex="-1" 
+              role="dialog" 
+              aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5>C'est fait! </h5>
+                </div>
+                  <div class="modal-body">
+                      <p> Nous vous avons envoyé un email de confirmation. A très bientôt pour tester myCharlotte!</p>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" 
+                    class="btn btn-secondary"
+                    (click)="closeModal()">
+                      Fermer
+                    </button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+</div>
+
+
+// Add ReCaptcha
