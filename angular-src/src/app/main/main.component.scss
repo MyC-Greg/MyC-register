@@ -1,0 +1,77 @@
+.container {
+    padding-top: 100px;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+    min-width: 100%;
+}
+
+.dark{
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}
+
+#header{
+    background-image: url("/assets/ie/content-style1.svg");
+}
+
+#header header h1 {
+    font-size: 2.25em;
+    line-height: 1.25em;
+    margin-bottom: 0;
+    color: #fff;
+    text-align: center;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #666;
+    margin: 0 0 1em 0;
+    font-weight: 100;
+    line-height: 1.5em;
+}
+
+h1{
+    font-weight: 100;
+}
+
+#header header p {
+    margin-top: 1.25em;
+    font-weight: 100;
+    font-size: 1.25em;
+    line-height: 1.5em;
+    text-align: center;
+    color: #fff;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    padding-left: 6vh;
+    padding-right: 6vh;
+}
+
+.scrollDown {
+display: flex;
+justify-content: center;
+padding: 3vh;
+}
+
+.container2{
+    padding: 6vh;
+}
+
+.main > header h2 {
+    font-size: 2.25em;
+    font-weight: 100;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.main > header p {
+    margin: 3em 0 0 0;
+    padding: 0;
+    text-align: center;
+    color: #888;
+}
+
+
+

@@ -2,10 +2,15 @@
 .container {
     display: flex;
     justify-content: center;
+    background-color: #f48fb1;
+    min-width: 100%;
 }
 
 .subContainer{
     flex-wrap: wrap;
+    width: 80%;
+    padding: 2vh;
+   
 }
 
 .form-control {
@@ -26,7 +31,42 @@
 
 .titleRegister {
     text-align: center;
+    color: #fff;
+    font-size: 1.7rem;
+    padding-bottom: 1.7vh;
+    font-weight: 320;
 }
+
+input {
+    font-weight: 250;
+    font-size: 0.9rem;
+    color: #363334;
+}
+
+.btn-light.disabled, .btn-light:disabled {
+    background-color: #DFDFDF;
+    border-color: #DFDFDF;
+    color: #9F9F9F;
+    opacity: 1;
+}
+
+.btn-light.disabled, .btn-light:disabled {
+    background-color: #DFDFDF;
+    border-color: #DFDFDF;
+    color: #9F9F9F;
+    opacity: 1;
+}
+
+.btn-light {
+    color: rgba(54, 51, 52, 0.8);
+    background-color:#fff;
+    letter-spacing: .5px;
+    border-style: none;
+}
+
+
+
+
 
 .modal-header {
     display: flex;

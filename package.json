@@ -10,6 +10,7 @@
     "express": "^4.16.2",
     "jsonwebtoken": "^8.1.0",
     "mongoose": "^4.13.9",
+    "nodemailer": "^4.4.1",
     "path": "^0.12.7",
     "save": "^2.3.2"
   },

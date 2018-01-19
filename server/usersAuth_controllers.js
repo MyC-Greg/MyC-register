@@ -1,4 +1,5 @@
 const User = require('./user_model');
+const nodemailer = require('nodemailer');
 
 module.exports = {
 
@@ -31,7 +32,41 @@ module.exports = {
         getEmail();
     },
 
+
+
     signup(req, res, next) {
+
+        function sendEmail(user) {
+            let smtpConfig = {
+                host: 'www.outlook.com',
+                sendMail: true,
+                port: 587,
+                secure: false, // upgrade later with STARTTLS
+                auth: {
+                    user: 'nedelecgregoire@hotmail.com',
+                    pass: 'Cervione3*'
+                }
+            };
+              let transporter = nodemailer.createTransport(smtpConfig);
+        
+              var mailOptions = {
+                from: {name: 'Charlotte', address: 'nedelecgregoire@hotmail.com'},
+                to: user.email,
+                subject: 'Bienvenue sur myCharlotte',
+                text: 'Merci de vous être inscrit! Nous vous recontacterons dès que la premiere version de test sera prête.'
+              };
+        
+              transporter.sendMail(mailOptions, function(error, info){
+                if (error) {
+                    console.log('mailOptions', mailOptions)
+                  console.log(error);
+                } else {
+                  console.log('Email sent: ' + info.response);
+                }
+              });
+              
+        };
+
         console.log('req.body',req.body)
         const user = new User({
         firstName: req.body.user.firstName,
@@ -46,7 +81,10 @@ module.exports = {
                 title: 'An error occurred',
                 error: err
             });
+        } else {
+            sendEmail(user);
         }
+
         res.status(200).json({
             message: 'User created',
             obj: result

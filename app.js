@@ -3,7 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const config = require('./server/config/database')
+const config = require('./server/config/database');
 
 // Connect to Database
 mongoose.Promise = global.Promise;
