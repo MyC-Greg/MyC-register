@@ -1,6 +1,11 @@
-<div class="container">
+<div id="register" class="container">
   <div class="subContainer">
-    <h2 class="titleRegister">Inscris-toi!</h2>
+    <div class="header">
+    <h2 class="titleRegister">myCharlotte startet bald!</h2>
+    <p>Sie haben Brustkrebs und möchten eine persönliche Betreuung durch myCharlotte <br/>um Ihre Lebensqualität während der Therapien zu verbessern?<br/>
+      Melden Sie sich an.</p>
+    </div>
+    <div class="content">
     <form   class="login-form" 
             [formGroup]="myForm" 
             (ngSubmit)="onSubmit()"
@@ -49,8 +54,9 @@
         <button type="submit" 
                 class="btn btn-light"
                 [disabled]="!myForm.valid"
-                >S'inscrire</button>
+                >Anmelden</button>
             </form>
+          </div>
 
         <div  class="modal fade" 
               [ngClass]="{'show': isShow}"

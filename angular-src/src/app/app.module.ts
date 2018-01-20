@@ -12,7 +12,6 @@ import { MainComponent } from './main/main.component';
 
 import { ConfigService } from './services/config.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +24,7 @@ import { ConfigService } from './services/config.service';
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule
-  ],
+    ],
   providers: [
     AuthService,
     ConfigService
