@@ -32,7 +32,7 @@ const port = process.env.PORT || 8080;
 app.use(cors());
 
 // Set static folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, './angular-src/dist')));
 
 // Body Parser middleware
 app.use(bodyParser.json());
@@ -43,6 +43,10 @@ app.use('/', AppComponent);
 app.get('/', (req, res) => {
     res.send('Invalid Endpoint');
 })
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './angular-src/dist/index.html'));
+  });
 
 // Start Server
 app.listen(port, () => {
