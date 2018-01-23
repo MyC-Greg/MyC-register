@@ -5,9 +5,20 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const config = require('./server/config/database');
 
-// Connect to Database
+
+// Connect To Database (NEW)
+// Map global promise - get rid of warning
 mongoose.Promise = global.Promise;
-mongoose.connect(config.database);
+// Connect to mongoose
+mongoose.connect(config.database, {
+    useMongoClient: true
+})
+.then(() => console.log('MongoDB Connected...'))
+.catch(err => console.log(err));
+
+// Connect to Database (OLD CODE)
+// mongoose.Promise = global.Promise;
+// mongoose.connect(config.database, {useMongoClient: true});
 
 // On Connection
 mongoose.connection.on('connected', ()=>{
@@ -25,13 +36,14 @@ const usersAuth = require('./server/usersAuth_route');
 
 
 // Port Number
-// const port = 3000;
-const port = process.env.PORT || 8080;
+// const port = 3000;      // dev
+const port = process.env.PORT || 8080;  //prod
 
 //CORS middleware
 app.use(cors());
 
 // Set static folder
+// app.use(express.static(path.join(__dirname, './angular-src/dist')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Body Parser middleware
@@ -43,9 +55,9 @@ app.get('/', (req, res) => {
     res.send('Invalid Endpoint');
 })
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/index.html'));
-  });
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public/index.html'));
+//   });
 
 // Start Server
 app.listen(port, () => {
