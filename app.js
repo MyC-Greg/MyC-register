@@ -6,19 +6,13 @@ const mongoose = require('mongoose');
 const config = require('./server/config/database');
 
 
-// Connect To Database (NEW)
+// Connect To Database
 // Map global promise - get rid of warning
 mongoose.Promise = global.Promise;
 // Connect to mongoose
-mongoose.connect(config.database, {
-    useMongoClient: true
-})
+mongoose.connect(config.database)
 .then(() => console.log('MongoDB Connected...'))
 .catch(err => console.log(err));
-
-// Connect to Database (OLD CODE)
-// mongoose.Promise = global.Promise;
-// mongoose.connect(config.database, {useMongoClient: true});
 
 // On Connection
 mongoose.connection.on('connected', ()=>{
