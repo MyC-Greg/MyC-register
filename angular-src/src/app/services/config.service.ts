@@ -6,5 +6,6 @@ import { Injectable } from '@angular/core';
 export class ConfigService {
     // serverURL = "http://192.168.178.179:3000/";
 
-    serverURL = 'http://localhost:3000/';
+    // serverURL = 'http://localhost:3000/';
+    serverURL = 'https://mycharlotte.herokuapp.com/';
 }
