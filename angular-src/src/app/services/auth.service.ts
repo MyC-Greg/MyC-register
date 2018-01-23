@@ -17,6 +17,7 @@ export class AuthService {
 serverUrl = this.configService.serverURL;
 
     checkEmail(email) {
+        console.log(email);
         return this.http.get<any>(`${this.serverUrl}usersAuth/checkEmail/${email}`, {observe: 'response'})
         .map((response) => {
             console.log(response.status);

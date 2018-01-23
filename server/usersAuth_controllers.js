@@ -35,7 +35,7 @@ module.exports = {
 
 
     signup(req, res, next) {
-
+       
         function sendEmail(user) {
             let smtpConfig = {
                 host: 'www.outlook.com',

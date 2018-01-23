@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-
+    console.log(this.myForm.value.email);
     this.authService.checkEmail(this.myForm.value.email)
       .subscribe(
         bool => {
