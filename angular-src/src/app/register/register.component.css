@@ -4,12 +4,12 @@
     justify-content: center;
     min-width: 100%;
 }
+  
 
 .subContainer{
     flex-wrap: wrap;
-    width: 80%;
+    /* width:60%; */
     padding: 2vh;
-   
 }
 
 .header {
@@ -24,7 +24,7 @@
 }
 
 h2 {
-    font-size: 2.25em;
+    font-size: 3em;
     font-weight: 100;
     margin-bottom: 0;
     color: #666;
