@@ -36,7 +36,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Body Parser middleware
 app.use(bodyParser.json());
-app.use('/usersAuth', usersAuth);
+// app.use('/usersAuth', usersAuth);
+app.use('/', AppComponent);
 
 // Index Route
 app.get('/', (req, res) => {
