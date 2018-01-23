@@ -25,7 +25,8 @@ const usersAuth = require('./server/usersAuth_route');
 
 
 // Port Number
-const port = 3000;
+// const port = 3000;
+const port = process.env.PORT || 8080;
 
 //CORS middleware
 app.use(cors());
