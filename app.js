@@ -32,12 +32,11 @@ const port = process.env.PORT || 8080;
 app.use(cors());
 
 // Set static folder
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Body Parser middleware
 app.use(bodyParser.json());
 app.use('/usersAuth', usersAuth);
-// app.use('/', AppComponent);
 
 // Index Route
 app.get('/', (req, res) => {
@@ -45,7 +44,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/index.html'));
+    res.sendFile(path.join(__dirname, 'public/index.html'));
   });
 
 // Start Server
