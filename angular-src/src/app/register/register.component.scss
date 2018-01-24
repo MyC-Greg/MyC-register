@@ -5,7 +5,6 @@
     min-width: 100%;
 }
   
-
 .subContainer{
     flex-wrap: wrap;
     /* width:60%; */
@@ -21,6 +20,9 @@
     background: #fff;
     padding: 0 0 4em 0;
     color: #888;
+    @media screen and (max-width: 480px) {
+        margin: 0 2vh 0 2vh;
+    }  
 }
 
 h2 {
@@ -33,6 +35,9 @@ h2 {
 .titleRegister {
     text-align: center;
     padding-bottom: 1.7vh;
+    @media screen and (max-width: 480px) {
+        font-size: 1.75em;
+    }    
 }
 
 p {
@@ -40,6 +45,10 @@ p {
     padding: 0;
     text-align: center;
     color: #888;
+    @media screen and (max-width: 480px) {
+        font-size: 0.75em;
+        margin: 0 2vh 0 2vh;
+    }   
 }
 
 .form-control {
@@ -58,13 +67,14 @@ p {
     transition-timing-function: linear; 
 }
 
-
-
 input {
     font-weight: 250;
     font-size: 0.9rem;
     color: #888;
     background: #f8f8f8;
+    @media screen and (max-width: 480px) {
+        font-size: 0.75em;
+    }  
 }
 
 button {
@@ -85,10 +95,6 @@ button {
     border-style: none;
 }
 
-
-
-
-
 .modal-header {
     display: flex;
     justify-content: center;
@@ -102,8 +108,6 @@ button {
 .modal-body > p {
     margin-top: 0;
 }
-
-
 
 .modal-footer{
     display: flex;

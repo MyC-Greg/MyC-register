@@ -26,6 +26,24 @@
     text-align: center;
     padding-top: 2vh;
     padding-bottom: 2vh;
+    @media screen and (max-width: 480px) {
+            font-size: 2.75em;
+}
+}
+#header header p {
+    margin-top: 1.25em;
+    font-weight: 100;
+    font-size: 1.75em;
+    line-height: 1.5em;
+    text-align: center;
+    color: #fff;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    padding-left: 6vh;
+    padding-right: 6vh;
+    @media screen and (max-width: 480px) {
+        font-size: 1em;
+}
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -38,6 +56,9 @@ h1, h2, h3, h4, h5, h6 {
 h3 {
     margin-bottom: 1vh;
     color: #FFF;
+    @media screen and (max-width: 480px) {
+        font-size: 1.5em;
+    }
 }
 
 
@@ -45,18 +66,6 @@ h1{
     font-weight: 100;
 }
 
-#header header p {
-    margin-top: 1.25em;
-    font-weight: 100;
-    font-size: 1.75em;
-    line-height: 1.5em;
-    text-align: center;
-    color: #fff;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
-    padding-left: 6vh;
-    padding-right: 6vh;
-}
 
 .scrollDown {
 display: flex;
@@ -66,6 +75,9 @@ padding: 3vh;
 
 .container2{
     padding: 6vh;
+    @media screen and (max-width: 480px) {
+        margin: 0 2vh 0 2vh;
+    }
 }
 
 .container3{
@@ -77,6 +89,9 @@ padding: 3vh;
     font-weight: 100;
     margin-bottom: 0;
     text-align: center;
+    @media screen and (max-width: 480px) {
+        font-size: 1.5em;
+    }
 }
 
 .main > header p {
@@ -84,10 +99,19 @@ padding: 3vh;
     padding: 0;
     text-align: center;
     color: #888;
+    @media screen and (max-width: 480px) {
+        font-size: 0.75em;
+    }
 }
 
 #secondLine {
     margin-top: 2vh;
+}
+
+.icons > section > p {
+    @media screen and (max-width: 480px) {
+        font-size: 0.75em;
+    }
 }
 
 /* Feature Icon */
@@ -151,17 +175,8 @@ padding: 3vh;
 }
 
 .main > .content.style1 {
-    // background-color: #8ebebc
-    // background-image: url("/assets/images/overlay.png"), url("/assets/images/header.svg"),linear-gradient(75deg, #7ecaf6 32%, rgba(126, 202, 246, 0.75) 70%);
     background-image: url("/assets/images/overlay.png"), url("/assets/images/header.svg"),linear-gradient(75deg, #8ebebc 32%, rgba(142, 190, 188, 0.40) 70%);
-
     background-color: #7ecaf6;
-    // background: linear-gradient(75deg, #7ecaf6 32%, rgba(126, 202, 246, 0.75) 70%);
-
-    
-        // background-image: url("/assets/images/overlay.png"), url("/assets/images/header.svg"),linear-gradient(75deg, #FF7088 95%, #FF7088 5%);
-
-    // background: url("/assets/images/bgtr.svg") top right no-repeat, url("/assets/images/bgbl.svg") bottom left no-repeat, url("/assets/images/bgbl.svg") bottom left no-repeat, url("/assets/images/overlay.png"), linear-gradient(45deg, #b39c68, #a56365, #412e4c);
 }
 
 .featured {
