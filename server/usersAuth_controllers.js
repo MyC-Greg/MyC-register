@@ -38,22 +38,22 @@ module.exports = {
        
         function sendEmail(user) {
             let smtpConfig = {
-                host: 'www.outlook.com',
+                host: 'ssl0.ovh.net',
                 sendMail: true,
                 port: 587,
                 secure: false, // upgrade later with STARTTLS
                 auth: {
-                    user: 'nedelecgregoire@hotmail.com',
-                    pass: 'Cervione3*'
+                    user: 'charlotte@mycharlotte.co',
+                    pass: 'Chamonix1'
                 }
             };
               let transporter = nodemailer.createTransport(smtpConfig);
         
               var mailOptions = {
-                from: {name: 'Charlotte', address: 'nedelecgregoire@hotmail.com'},
+                from: {name: 'Charlotte', address: 'charlotte@mycharlotte.co'},
                 to: user.email,
-                subject: 'Bienvenue sur myCharlotte',
-                text: 'Merci de vous être inscrit! Nous vous recontacterons dès que la premiere version de test sera prête.'
+                subject: 'Willkommen bei myCharlotte',
+                text: 'Herzlichen Dank fūr Deine Anmeldung! Wir melden uns in Kürze bei Dir.'
               };
         
               transporter.sendMail(mailOptions, function(error, info){

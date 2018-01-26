@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   myForm: FormGroup;
   isShow: boolean;
   isAlert: boolean;
+  isSpinner: boolean;
 
   constructor(private authService: AuthService) { }
 
@@ -24,7 +25,10 @@ export class RegisterComponent implements OnInit {
     this.myForm = new FormGroup({
       firstName: new FormControl(null, Validators.required),
       lastName: new FormControl(null, Validators.required),
-      email: new FormControl(null, Validators.required),
+      email: new FormControl(null, [
+        Validators.required,
+        Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+    ]),
       country: new FormControl(null),
       city: new FormControl(null)
     });
@@ -38,7 +42,20 @@ export class RegisterComponent implements OnInit {
     this.isAlert = false;
   }
 
+  closeSpinner() {
+    this.isSpinner = false;
+  }
+
+  openSpinner() {
+    this.isSpinner = true;
+  }
+
   onSubmit() {
+    setTimeout(() => {
+      if (!this.isAlert) {
+        this.openSpinner();
+      }
+    }, 80);
     console.log(this.myForm.value.email);
     this.authService.checkEmail(this.myForm.value.email)
       .subscribe(
@@ -54,12 +71,20 @@ export class RegisterComponent implements OnInit {
             console.log(user);
             this.authService.signup(user)
                 .subscribe(
-                    data => this.isShow = true,
+                    data => {
+                      this.closeSpinner();
+                      this.isShow = true;
+                      this.closeSpinner();
+                    },
                     error => console.error(error)
                 );
             this.myForm.reset();
         } else {
+          this.closeSpinner(),
           this.isAlert = true;
+          setTimeout(() => {
+            this.isAlert = false;
+          }, 2500);
         }
         },
         error => console.error(error)
