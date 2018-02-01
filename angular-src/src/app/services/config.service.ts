@@ -7,5 +7,5 @@ export class ConfigService {
     // serverURL = "http://192.168.178.179:3000/";
 
     // serverURL = 'http://localhost:3000/';
-    serverURL = 'http://www.mycharlotte.fr/';
+    serverURL = 'https://mycharlotte.herokuapp.com/';
 }
