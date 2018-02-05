@@ -53,7 +53,7 @@ module.exports = {
                 from: {name: 'Charlotte', address: 'charlotte@mycharlotte.fr'},
                 to: user.email,
                 subject: 'Bienvenue chez myCharlotte',
-                text: 'Merci beaucoup de vous être inscrit! Nous vous recontacterons sous peu pour les premières activités.'
+                text: 'Merci beaucoup de vous être inscrit! A bientôt pour les premiers conseils et activités.'
               };
         
               transporter.sendMail(mailOptions, function(error, info){
