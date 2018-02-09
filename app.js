@@ -56,12 +56,12 @@ app.engine('html', ngUniversal.ngExpressEngine({
     ]
 }));
 app.set('view engine', 'html');
-app.set('views', 'public')
+app.set('views', 'dist')
 
 app.get('/', angularRouter);
 
 // Set static folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 app.get('*', angularRouter);
 
