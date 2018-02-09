@@ -1,4 +1,4 @@
-
+"use strict"
 require('zone.js/dist/zone-node');
 require('reflect-metadata');
 const express = require('express');
@@ -9,11 +9,14 @@ const mongoose = require('mongoose');
 const config = require('./server/config/database');
 const ngUniversal = require('@nguniversal/express-engine');
 const { provideModuleMap } = require('@nguniversal/module-map-ngfactory-loader');
-const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require("./dist-server/main.bundle");
+const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require("./dist/server/main.bundle");
+import { join } from 'path';
+import { readFileSync } from 'fs';
+import { enableProdMode } from '@angular/core';
 
-function angularRouter(req, res) {
-    res.render('index', {req, res});
-}
+// Faster server renders w/ Prod mode (dev mode never needed)
+enableProdMode();
+
 // Connect To Database
 mongoose.Promise = global.Promise;
 // Connect to mongoose
@@ -38,7 +41,8 @@ const usersAuth = require('./server/usersAuth_route');
 
 // Port Number
 // const port = 3000;      // dev
-const port = process.env.PORT || 8080;  //prod
+const PORT = process.env.PORT || 8080;  //prod
+const DIST_FOLDER = join(process.cwd(), 'dist');
 
 //CORS middleware
 app.use(cors());
@@ -48,24 +52,27 @@ app.use(bodyParser.json());
 app.use('/usersAuth', usersAuth);
 
 
-// Index Route
+const template = readFileSync(join(DIST_FOLDER, 'browser', 'index.html')).toString();
+
 app.engine('html', ngUniversal.ngExpressEngine({
-    bootstrap: AppServerModuleNgFactory,
-    providers: [
-        provideModuleMap(LAZY_MODULE_MAP)
-    ]
+  bootstrap: AppServerModuleNgFactory,
+  providers: [
+    provideModuleMap(LAZY_MODULE_MAP)
+  ]
 }));
+
 app.set('view engine', 'html');
-app.set('views', 'dist')
+app.set('views', join(DIST_FOLDER, 'browser'));
 
-app.get('/', angularRouter);
+// Server static files from /browser
+app.get('*.*', express.static(join(DIST_FOLDER, 'browser')));
 
-// Set static folder
-app.use(express.static(path.join(__dirname, 'dist')));
+// All regular routes use the Universal engine
+app.get('*', (req, res) => {
+  res.render(join(DIST_FOLDER, 'browser', 'index.html'), { req });
+});
 
-app.get('*', angularRouter);
-
-// Start Server
-app.listen(port, () => {
-    console.log('Server started on port ' + port);
+// Start up the Node server
+app.listen(PORT, () => {
+  console.log(`Node server listening on http://localhost:${PORT}`);
 });
