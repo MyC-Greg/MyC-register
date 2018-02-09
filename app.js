@@ -15,7 +15,6 @@ function angularRouter(req, res) {
     res.render('index', {req, res});
 }
 // Connect To Database
-// Map global promise - get rid of warning
 mongoose.Promise = global.Promise;
 // Connect to mongoose
 mongoose.connect(config.database)
@@ -50,9 +49,6 @@ app.use('/usersAuth', usersAuth);
 
 
 // Index Route
-// app.get('/', (req, res) => {
-//     res.send('Invalid Endpoint');
-// })
 app.engine('html', ngUniversal.ngExpressEngine({
     bootstrap: AppServerModuleNgFactory,
     providers: [
@@ -65,16 +61,9 @@ app.set('views', 'public')
 app.get('/', angularRouter);
 
 // Set static folder
-// app.use(express.static(path.join(__dirname, './angular-src/dist')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('*', angularRouter);
-
-
-
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'public/index.html'));
-//   });
 
 // Start Server
 app.listen(port, () => {
