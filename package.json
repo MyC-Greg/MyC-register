@@ -1,14 +1,10 @@
 {
   "name": "myc-register",
   "version": "1.0.0",
-  "engines": {
-    "node": "9.5.0",
-    "npm": "5.6.0"
-  },
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "node app",
+    "start": "ng serve",
     "build": "ng build",
     "build:ssr": "ng build --prod && ng build --prod --app 1 --output-hashing=none",
     "test": "ng test",
@@ -29,8 +25,6 @@
     "@angular/router": "^5.2.0",
     "@nguniversal/express-engine": "^5.0.0-beta.5",
     "@nguniversal/module-map-ngfactory-loader": "^5.0.0-beta.5",
-    "@angular/cli": "1.6.7",
-    "@angular/compiler-cli": "^5.1.0",
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "core-js": "^2.4.1",
@@ -45,6 +39,8 @@
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
+    "@angular/cli": "1.6.7",
+    "@angular/compiler-cli": "^5.1.0",
     "@angular/language-service": "^5.1.0",
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
