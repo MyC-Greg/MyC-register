@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "node app.js",
+    "start": "ng build --prod && ng build --prod --app 1 --output-hashing=none",
     "build": "ng build",
     "build:ssr": "ng build --prod && ng build --prod --app 1 --output-hashing=none",
     "test": "ng test",
