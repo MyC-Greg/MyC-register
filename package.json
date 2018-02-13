@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "node dist-server/main.bundle.js",
+    "start": "node ./dist-server/main.bundle.js",
     "build": "ng build",
     "build:ssr": "ng build --prod && ng build --prod --app 1 --output-hashing=none",
     "test": "ng test",
