@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "node dist-server/main.bundle.js"
+    "start": "node dist-server/main.bundle"
   },
   "engines": {
     "node": "9.5.0",
