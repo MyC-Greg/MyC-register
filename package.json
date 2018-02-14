@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "build:ssr": "ng build --prod && ng build --prod --app 1 --output-hashing=none"
   },
   "engines": {
     "node": "9.5.0",
