@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 
+
 import { ConfigService } from './services/config.service';
 
 @NgModule({
@@ -23,7 +24,7 @@ import { ConfigService } from './services/config.service';
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
     ],
   providers: [
     AuthService,

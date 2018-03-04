@@ -14,8 +14,7 @@ export class AppComponent {
       // tslint:disable-next-line:max-line-length
       {name: 'description', content: 'Programme basé sur la nutrition, l\'exercice physique et la gestion des émotions pour réduire les effets secondaires dûs aux chimiothérapies, radiothérapies, chirurgies, hormonothérapies et plus largement aux traitement du cancer du sein'},
       {name: 'author', content: 'myCharlotte'},
-      {name: 'keywords', content: 'cancer, sein, chimiothérapie, radiothérapie, chirurgie, hormonothérapie'},
-      {name: 'robots', description: 'index, follow'}
+      {name: 'keywords', content: 'cancer, sein, chimiothérapie, radiothérapie, chirurgie, hormonothérapie'}
     ]);
   }
 
