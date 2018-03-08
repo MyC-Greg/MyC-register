@@ -73,7 +73,8 @@ module.exports = {
         lastName: req.body.user.lastName,
         email: req.body.user.email,
         country: req.body.user.country,
-        city: req.body.user.city
+        city: req.body.user.city,
+        interest: req.body.user.interest
     });
     user.save(function(err, result) {
         if (err) {
@@ -84,10 +85,9 @@ module.exports = {
         } else {
             sendEmail(user);
         }
-
         res.status(200).json({
-            message: 'User created',
-            obj: result
+            message: 'user created',
+            obj: user
         });
     });
 }

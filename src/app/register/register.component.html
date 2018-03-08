@@ -15,11 +15,17 @@
                 placeholder="Prénom" 
                 aria-label="firstName"
                 formControlName="firstName">
+                <span *ngIf="!myForm.get('firstName').valid && myForm.get('firstName').touched"
+                      class="help-block"
+                >Il vous faut entrer un prénom pour vous inscrire</span>
         <input  type="text" 
                 class="form-control" 
                 placeholder="Nom" 
                 aria-label="lastName"
                 formControlName="lastName">
+                <span *ngIf="!myForm.get('lastName').valid && myForm.get('lastName').touched"
+                      class="help-block"
+                >Il vous faut entrer un nom pour vous inscrire</span>
         <input  type="text" 
                 class="form-control" 
                 placeholder="Pays" 
@@ -35,7 +41,19 @@
                 placeholder="Adresse E-Mail" 
                 aria-label="email"
                 formControlName="email">
-
+                <span *ngIf="!myForm.get('email').valid && myForm.get('email').touched"
+                      class="help-block"
+                >Il nous faut un email pour vous envoyer la newsletter!</span>
+        <p class="interestTitle">Vous êtes intéressé parce que:</p>
+        <div class="radio" *ngFor="let interest of interests">
+          <label>
+            <input  type="radio" 
+                    name= "interest"
+                    [value]= "interest"
+                    formControlName="interest">
+            <p class="interest">{{interest}}</p>
+          </label>  
+        </div>
                   <div  *ngIf="isAlert"
                         class="alert alert-warning alert-dismissible fade"
                         [ngClass]="{show: isAlert}" 
@@ -107,5 +125,34 @@
               </div>
             </div>
           </div>
+
+          <div  class="modal fade" 
+          [ngClass]="{'show': isError}"
+          [ngStyle] = "{display: isError? 'flex': 'none'}"
+          tabindex="-1" 
+          role="dialog" 
+          aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5>Ouuups!</h5>
+            </div>
+              <div class="modal-body">
+                  <p>Il semblerait qu'une erreur se soit produite, envoyez-nous un email directement avec vos coordonnées pour vous inscrire. Désolé!</p>
+              </div>
+              <div class="modal-email"><a href="mailto:charlotte@mycharlotte.fr"><i class="fa fa-envelope fa-2x"></i></a></div>
+
+              <div class="modal-footer">
+                <button type="button" 
+                class="btn btn-secondary"
+                (click)="closeError()">
+                  Fermez
+                </button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
         </div>
 </div>

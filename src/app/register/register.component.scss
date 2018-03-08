@@ -51,6 +51,34 @@ p {
     }   
 }
 
+.interestTitle {
+    text-align: left;
+    color: #666;
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+label {
+    display: flex;
+    align-items: center;
+}
+
+.interest {
+    margin: 0;
+    color: #888;
+    padding-left: 0.5em;
+    text-align: start;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid lightpink;
+}
+
+.help-block {
+    color: lightpink;
+}
+
 #secondLine {
     margin-top: 2vh;
 }
@@ -111,6 +139,11 @@ button {
 
 .modal-body > p {
     margin-top: 0;
+}
+
+.modal-email {
+    display: flex;
+    justify-content: center;
 }
 
 .modal-footer{

@@ -20,6 +20,9 @@ const UserSchema = new Schema({
     city: {
         type: String
     },
+    interest: {
+        type: String
+    }
 });
 
 const User = mongoose.model('user', UserSchema);

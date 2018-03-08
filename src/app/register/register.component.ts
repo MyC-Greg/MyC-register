@@ -18,6 +18,11 @@ export class RegisterComponent implements OnInit {
   isShow: boolean;
   isAlert: boolean;
   isSpinner: boolean;
+  isError: boolean;
+  interests = ['Vous êtes atteinte d\'un cancer du sein',
+              'Vous êtes atteinte d\'un autre cancer',
+              'Une de vos proches est atteinte d\'un cancer du sein',
+              'Le sujet vous intéresse'];
 
   constructor(private authService: AuthService) { }
 
@@ -30,7 +35,8 @@ export class RegisterComponent implements OnInit {
         Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
     ]),
       country: new FormControl(null),
-      city: new FormControl(null)
+      city: new FormControl(null),
+      interest: new FormControl(null, Validators.required)
     });
   }
 
@@ -43,6 +49,11 @@ export class RegisterComponent implements OnInit {
   }
 
   closeSpinner() {
+    this.isSpinner = false;
+  }
+
+  closeError() {
+    this.isError = false;
     this.isSpinner = false;
   }
 
@@ -65,6 +76,7 @@ export class RegisterComponent implements OnInit {
                 this.myForm.value.firstName,
                 this.myForm.value.lastName,
                 this.myForm.value.email,
+                this.myForm.value.interest,
                 this.myForm.value.country,
                 this.myForm.value.city
             );
@@ -76,7 +88,10 @@ export class RegisterComponent implements OnInit {
                       this.isShow = true;
                       this.closeSpinner();
                     },
-                    error => console.error(error)
+                    error => {
+                      this.isError = true;
+                      console.error(error);
+                    }
                 );
             this.myForm.reset();
         } else {
@@ -87,9 +102,11 @@ export class RegisterComponent implements OnInit {
           }, 2500);
         }
         },
-        error => console.error(error)
+        error => {
+          this.isError = true;
+          console.error(error);
+        }
       );
 
-    // rajouter un toast pour dire 'vous etes bien enregistré, un email vous a ete envoyé'
       }
 }
