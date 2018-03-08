@@ -67,7 +67,7 @@ export class RegisterComponent implements OnInit {
         this.openSpinner();
       }
     }, 80);
-    console.log(this.myForm.value.email);
+    // console.log(this.myForm.value.email);
     this.authService.checkEmail(this.myForm.value.email)
       .subscribe(
         bool => {
@@ -80,7 +80,7 @@ export class RegisterComponent implements OnInit {
                 this.myForm.value.country,
                 this.myForm.value.city
             );
-            console.log(user);
+            // console.log(user);
             this.authService.signup(user)
                 .subscribe(
                     data => {

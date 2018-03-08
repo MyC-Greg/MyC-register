@@ -17,10 +17,10 @@ export class AuthService {
 serverUrl = this.configService.serverURL;
 
     checkEmail(email) {
-        console.log(email);
+        // console.log(email);
         return this.http.get<any>(`${this.serverUrl}usersAuth/checkEmail/${email}`, {observe: 'response'})
         .map((response) => {
-            console.log(response.status);
+            // console.log(response.status);
             let bool;
             response.status === 204 ? bool = true : bool = false;
             return bool;
@@ -31,10 +31,9 @@ serverUrl = this.configService.serverURL;
     signup(user: User) {
         console.log(user);
         return this.http.post<any>(`${this.serverUrl}usersAuth/signup`, {user}, {observe: 'response'})
-        .map((response) => {
-            console.log('c est du delire');
-            console.log(response);
-        })
+        // .map((response) => {
+        //     console.log(response);
+        // })
             .catch((error) => {
                     return Observable.throw(error);
             });
