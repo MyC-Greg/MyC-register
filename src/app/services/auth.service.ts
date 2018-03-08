@@ -29,7 +29,7 @@ serverUrl = this.configService.serverURL;
         }
 
     signup(user: User) {
-        console.log(user);
+        // console.log(user);
         return this.http.post<any>(`${this.serverUrl}usersAuth/signup`, {user}, {observe: 'response'})
         // .map((response) => {
         //     console.log(response);
