@@ -30,10 +30,11 @@ export class RegisterComponent implements OnInit {
     this.myForm = new FormGroup({
       firstName: new FormControl(null, Validators.required),
       lastName: new FormControl(null, Validators.required),
-      email: new FormControl(null, [
-        Validators.required,
-        Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
-    ]),
+    //   email: new FormControl(null, [
+    //     Validators.required,
+    //     Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+    // ]),
+      email: new FormControl(null, Validators.email),
       country: new FormControl(null),
       city: new FormControl(null),
       interest: new FormControl(null, Validators.required)
@@ -73,12 +74,12 @@ export class RegisterComponent implements OnInit {
         bool => {
         if (bool) {
           const user = new User(
-                this.myForm.value.firstName,
-                this.myForm.value.lastName,
-                this.myForm.value.email,
+                this.myForm.value.firstName.trim(),
+                this.myForm.value.lastName.trim(),
+                this.myForm.value.email.trim(),
                 this.myForm.value.interest,
-                this.myForm.value.country,
-                this.myForm.value.city
+                this.myForm.value.country.trim(),
+                this.myForm.value.city.trim()
             );
             // console.log(user);
             this.authService.signup(user)

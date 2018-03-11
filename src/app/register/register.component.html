@@ -36,11 +36,12 @@
                 placeholder="Ville" 
                 aria-label="city"
                 formControlName="city">
-        <input  type="text" 
+        <input  type="email" 
                 class="form-control" 
                 placeholder="Adresse E-Mail" 
                 aria-label="email"
-                formControlName="email">
+                formControlName="email"
+                autocapitalize="off">
                 <span *ngIf="!myForm.get('email').valid && myForm.get('email').touched"
                       class="help-block"
                 >Il nous faut un email pour vous envoyer la newsletter!</span>
