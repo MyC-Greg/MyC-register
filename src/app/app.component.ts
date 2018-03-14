@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +8,10 @@ import { Meta } from '@angular/platform-browser';
 })
 export class AppComponent {
 
-  constructor(private meta: Meta) {
+  constructor(private meta: Meta, title: Title) {
+    title.setTitle('MyCharlotte - Reduction des effets secondaires dus aux traitements du cancer du sein');
+
     this.meta.addTags([
-      {name: 'title', content: 'MyCharlotte - Reduction des effets secondaires dus aux traitements du cancer du sein'},
       // tslint:disable-next-line:max-line-length
       {name: 'description', content: 'Programme basé sur la nutrition, l\'exercice physique et la gestion des émotions pour réduire les effets secondaires dûs aux chimiothérapies, radiothérapies, chirurgies, hormonothérapies et plus largement aux traitement du cancer du sein'},
       {name: 'author', content: 'myCharlotte'},
