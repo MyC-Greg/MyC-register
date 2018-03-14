@@ -9,7 +9,7 @@ import { Meta, Title } from '@angular/platform-browser';
 export class AppComponent {
 
   constructor(private meta: Meta, title: Title) {
-    title.setTitle('MyCharlotte - Reduction des effets secondaires dus aux traitements du cancer du sein');
+    title.setTitle('MyCharlotte - Réduction des effets secondaires dus aux traitements du cancer du sein');
 
     this.meta.addTags([
       // tslint:disable-next-line:max-line-length
