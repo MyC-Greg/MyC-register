@@ -9,11 +9,11 @@ import { Meta, Title } from '@angular/platform-browser';
 export class AppComponent {
 
   constructor(private meta: Meta, title: Title) {
-    title.setTitle('MyCharlotte - Réduction des effets secondaires dus aux traitements du cancer du sein');
+    title.setTitle('myCharlotte - Cancer du sein: Réduction des effets secondaires dus aux traitements');
 
     this.meta.addTags([
       // tslint:disable-next-line:max-line-length
-      {name: 'description', content: 'Programme basé sur la nutrition, l\'exercice physique et la gestion des émotions pour réduire les effets secondaires dus aux chimiothérapies, radiothérapies, chirurgies, hormonothérapies et plus largement aux traitement du cancer du sein'},
+      {name: 'description', content: 'myCharlotte vous aide à gérer les effets secondaires des traitements du cancer du sein grâce à l\'alimentation, l\'exercice physique et la gestion des émotions. Vous êtes actrice de votre mieux--être pendant les chimiothérapies, les radiothérapies, la chirurgie et l\'hormonothérapie.'},
       {name: 'author', content: 'myCharlotte'},
       {name: 'keywords', content: 'cancer, sein, chimiothérapie, radiothérapie, chirurgie, hormonothérapie'}
     ]);
