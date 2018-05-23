@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const UsersAuthController = require('./usersAuth_controllers');
+const UsersAuthController = require('../controllers/usersAuth_controllers');
 
 // check email
 router.get('/checkEmail/:email', UsersAuthController.checkEmail);

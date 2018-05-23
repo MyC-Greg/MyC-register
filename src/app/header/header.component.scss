@@ -1,0 +1,23 @@
+.navbar {
+    display: flex;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.nav-link {
+    white-space: nowrap;
+}
+
+.navbar-brand{
+    justify-content: center;
+}
+
+img {
+    max-width: 15%;
+    height: auto;
+}
+
+

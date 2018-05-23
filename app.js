@@ -33,12 +33,13 @@ mongoose.connection.on('error', (err)=>{
 
 const app = express();
 
-const usersAuth = require('./server/usersAuth_route');
+const usersAuth = require('./server/routes/usersAuth_route');
+const articles = require('./server/routes/articles_route');
 
 
 // Port Number
-// const port = 3000;      // dev
-const port = process.env.PORT || 8080;  //prod
+const port = 3000;      // dev
+// const port = process.env.PORT || 8080;  //prod
 
 //CORS middleware
 app.use(cors());
@@ -46,6 +47,7 @@ app.use(cors());
 // Body Parser middleware
 app.use(bodyParser.json());
 app.use('/usersAuth', usersAuth);
+app.use('/articles', articles);
 
 
 // Index Route

@@ -94,6 +94,27 @@ padding: 3vh;
     }
 }
 
+section:focus {
+    outline: none;
+}
+.btn-outline-light:hover {
+    color: #FF7088;
+    background-color: #FFF;
+    border-color:  #FFF;
+}
+.btn-outline-light:active {
+    color: #FF7088;
+    background-color: #FFF;
+    border-color:  #FFF;
+}
+
+.btn-outline-light:visited {
+    color: #f8f9fa;
+    background-color: transparent;
+    background-image: none;
+    border-color: #f8f9fa;
+}
+
 .main > header p {
     margin: 3em 0 0 0;
     padding: 0;

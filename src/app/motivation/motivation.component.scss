@@ -1,0 +1,45 @@
+.bigContainer {
+    // padding-top: 100px;
+    padding: 2rem;
+    margin: 0;
+    min-width: 100%;
+    // display: flex;
+    // flex-wrap: wrap;
+}
+
+.jumbotron {
+        background-image: url("/assets/images/overlay.png"), url("/assets/images/header.svg"), linear-gradient(75deg, #FF7088 32%, #F2B69D 70%);
+        // background-image: url("/assets/images/ie/content-style1.svg");
+        padding-top: 12vh;
+        padding-bottom: 12vh;
+
+}
+
+.card-deck {
+    justify-content: space-evenly;
+}
+
+.card { 
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.jumbotron > div > h1 {
+    color: white;
+}
+
+.lead {
+    color: rgba(108, 117, 125, 0.8);
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #FF7088;
+    border-color: #FF7088;
+}
+
+.btn-primary:hover {
+    color: #FF7088;
+    background-color: #FFF;
+    border-color:  #FFF;
+}

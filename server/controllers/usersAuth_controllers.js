@@ -1,4 +1,4 @@
-const User = require('./user_model');
+const User = require('../models/user_model');
 const nodemailer = require('nodemailer');
 
 module.exports = {

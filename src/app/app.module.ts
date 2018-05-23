@@ -1,4 +1,3 @@
-import { AuthService } from './services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -9,9 +8,32 @@ import { HeaderComponent } from './header/header.component';
 import { RegisterComponent } from './register/register.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
+import { HomeComponent } from './home/home.component';
 
+import { Routes, RouterModule } from '@angular/router';
 
+import { AuthService } from './services/auth.service';
 import { ConfigService } from './services/config.service';
+import { GetArticlesService } from './services/getArticles.service';
+
+import { ProgrammeComponent } from './programme/programme.component';
+import { ProgrammeHomeComponent } from './programme/programme-home/programmeHome.component';
+import { ActivitePhysiqueComponent } from './programme/activite-physique/activitePhysique.component';
+import { NutritionComponent } from './programme/nutrition/nutrition.component';
+import { GestionDesEmotionsComponent } from './programme/gestion-des-emotions/gestionDesEmotions.component';
+import { MotivationComponent } from './motivation/motivation.component';
+
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent},
+  { path: 'home', component: HomeComponent},
+  { path: 'programme', component: ProgrammeComponent, children: [
+    { path: '', component: ProgrammeHomeComponent},
+    { path: 'nutrition', component: NutritionComponent},
+    { path: 'activitePhysique', component: ActivitePhysiqueComponent},
+    { path: 'gestionDesEmotions', component: GestionDesEmotionsComponent},
+    { path: 'motivations', component: MotivationComponent}
+  ]}
+];
 
 @NgModule({
   declarations: [
@@ -19,16 +41,25 @@ import { ConfigService } from './services/config.service';
     HeaderComponent,
     RegisterComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
+    HomeComponent,
+    ProgrammeComponent,
+    ProgrammeHomeComponent,
+    ActivitePhysiqueComponent,
+    NutritionComponent,
+    GestionDesEmotionsComponent,
+    MotivationComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     ReactiveFormsModule,
     HttpClientModule,
+    RouterModule.forRoot(appRoutes)
     ],
   providers: [
     AuthService,
-    ConfigService
+    ConfigService,
+    GetArticlesService
   ],
   bootstrap: [AppComponent]
 })

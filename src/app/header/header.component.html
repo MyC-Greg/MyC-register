@@ -17,18 +17,18 @@
             <span class="navbar-toggler-icon"></span>
           </button>
         
-          <div  class="collapse navbar-collapse" 
+          <div  class="collapse navbar-collapse " 
                 [ngClass]="{'show': isShow}"
                 id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" >Le projet <span class="sr-only">(current)</span></a>
+            <ul class="navbar-nav ml-auto justify-content-end">
+              <li class="nav-item ">
+                <a class="nav-link" routerLinkActive="active" [routerLink]="['/programme/motivations']">Nos motivations </a>
               </li>
+              <li class="nav-item ">
+                  <a class="nav-link" routerLinkActive="active" [routerLink]="['/programme']" >Programme </a>
+                </li>
               <li class="nav-item">
-                <a class="nav-link" >Le programme</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link">S'inscrire</a>
+                  <a class="nav-link" routerLinkActive="active" routerLink="/home">S'inscrire</a>
                 </li>
                 </ul>
               </div>
