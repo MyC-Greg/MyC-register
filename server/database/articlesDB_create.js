@@ -54,7 +54,7 @@ mongoose.Promise = global.Promise;
             })
             .then((articles) => {
                 articles.map(article => {
-                    Picture.findById({ _id: "5b05a38c6123814fcf56c9dc"}, function(err, picture) {
+                    Picture.findById({ _id: "5b06789e4187ee13881ad80f"}, function(err, picture) {
                         if (err) {
                             console.log('error in finding picture', err)
                         }
@@ -71,7 +71,7 @@ mongoose.Promise = global.Promise;
                         }  
                     });
 
-                    Picture.findById({ _id: "5b05a38c6123814fcf56c9dd"}, function(err, picture) {
+                    Picture.findById({ _id: "5b06789e4187ee13881ad810"}, function(err, picture) {
                         if (err) {
                             console.log('error in finding picture', err)
                         }

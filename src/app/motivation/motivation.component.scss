@@ -43,3 +43,13 @@
     background-color: #FFF;
     border-color:  #FFF;
 }
+
+.btn-primary:focus {
+    box-shadow: none;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #FF7088;
+    border-color: #FF7088;
+}

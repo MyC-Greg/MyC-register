@@ -22,6 +22,8 @@ import { ActivitePhysiqueComponent } from './programme/activite-physique/activit
 import { NutritionComponent } from './programme/nutrition/nutrition.component';
 import { GestionDesEmotionsComponent } from './programme/gestion-des-emotions/gestionDesEmotions.component';
 import { MotivationComponent } from './motivation/motivation.component';
+import { ArticleComponent } from './programme/article/article.component';
+import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent},
@@ -31,7 +33,8 @@ const appRoutes: Routes = [
     { path: 'nutrition', component: NutritionComponent},
     { path: 'activitePhysique', component: ActivitePhysiqueComponent},
     { path: 'gestionDesEmotions', component: GestionDesEmotionsComponent},
-    { path: 'motivations', component: MotivationComponent}
+    { path: 'motivations', component: MotivationComponent},
+    { path: 'article', component: ArticleComponent}
   ]}
 ];
 
@@ -48,7 +51,9 @@ const appRoutes: Routes = [
     ActivitePhysiqueComponent,
     NutritionComponent,
     GestionDesEmotionsComponent,
-    MotivationComponent
+    MotivationComponent,
+    ArticleComponent,
+    EscapeHtmlPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

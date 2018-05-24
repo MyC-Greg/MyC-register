@@ -24,12 +24,15 @@ conn.once('open', function () {
     console.log('- connection open -');
     var gfs = Grid(conn.db);
 
-    const pic1 = gfs.createWriteStream({
-        filename: 'picg1.jpg'       
-    });
-    const pic2 = gfs.createWriteStream({
-        filename: 'pic2.jpg'
-    });
+    const optionsPic1 = {
+        filename: 'monks.jpg', // a filename
+    };
+    const pic1 = gfs.createWriteStream(optionsPic1);
+
+    const optionsPic2 = {
+        filename: 'shellAndSee.jpg', // a filename
+    };
+    const pic2 = gfs.createWriteStream(optionsPic2);
 
     fs.createReadStream(pic1Path).pipe(pic1);
     fs.createReadStream(pic2Path).pipe(pic2);

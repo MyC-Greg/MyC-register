@@ -32,14 +32,28 @@
     color: rgba(108, 117, 125, 0.8);
 }
 
-.btn-primary {
+// a:not([href]):not([tabindex]) {
+//     color: none;
+// }
+
+a.btn-primary {
     color: #fff;
     background-color: #FF7088;
     border-color: #FF7088;
 }
 
-.btn-primary:hover {
+a.btn-primary:hover {
     color: #FF7088;
     background-color: #FFF;
     border-color:  #FFF;
+}
+
+a.btn-primary:focus {
+    box-shadow: none;
+}
+
+a.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #FF7088;
+    border-color: #FF7088;
 }

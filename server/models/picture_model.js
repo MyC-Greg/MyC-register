@@ -10,10 +10,11 @@ const PictureSchema = new Schema({
     contentType: {
         type: String
     }
-}, 
-{
-    collection: 'fs.files'
-});
+},
+    {
+        collection: 'fs.files'
+    }
+);
 
 const Picture = mongoose.model('pictures', PictureSchema);
  // faire un truc ou on peut lier a des activites existantes, ou a des activites specifiques.
