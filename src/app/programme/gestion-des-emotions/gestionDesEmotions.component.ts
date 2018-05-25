@@ -1,6 +1,7 @@
 import { GetArticlesService } from './../../services/getArticles.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpEvent } from '@angular/common/http';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-gestiondesemotions',
@@ -8,19 +9,27 @@ import { HttpEvent } from '@angular/common/http';
   styleUrls: ['./gestionDesEmotions.component.scss']
 })
 export class GestionDesEmotionsComponent implements OnInit {
-articles;
+  pilar: String = 'GDE';
+  articles;
 
-  constructor(private getArticlesService: GetArticlesService) { }
+  constructor(private getArticlesService: GetArticlesService,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log(this.getArticlesService.article.length);
-      if (this.getArticlesService.article.length === 0 ) {
-      this.getArticlesService.getArticles().subscribe(articles => {
+    console.log(this.getArticlesService.GDEArticles.length);
+      if (this.getArticlesService.GDEArticles === undefined || this.getArticlesService.GDEArticles.length === 0 ) {
+      this.getArticlesService.getArticles(this.pilar).subscribe(articles => {
         this.articles = articles;
+        console.log(articles);
       });
     } else {
-      this.articles = this.getArticlesService.article;
+      this.articles = this.getArticlesService.GDEArticles;
     }
+  }
+
+  onNavigate(id, title, pilar) {
+    this.router.navigate(['article', id, title, pilar], {relativeTo: this.route});
   }
 
 }

@@ -1,1 +1,32 @@
-<p>Super AP</p>
+<app-header></app-header>
+
+
+  <div class="bigContainer">
+
+      <section class="jumbotron text-center">
+          <div class="container">
+            <h1 class="jumbotron-heading">Album example</h1>
+            <p class="lead" id="subtitle">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+
+          </div>
+        </section>
+
+      
+      <div class="card-deck">
+        <div class="card col-md-4 col-xl-3" *ngFor="let article of articles, let i = index">
+        
+          <img class="card-img-top" src="{{article.url}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title" >{{article.title}}</h5>
+            <p class="card-text">{{article.subtitle}}</p>
+            <!-- <p class="card-text" [innerHtml]="content[i] | keepHtml | slice: 0: 100">...</p> -->
+            <a class="btn btn-primary" (click)="onNavigate(article._id, article.title, article.pilar)">Lisez l'article</a>
+          </div>
+        </div>
+        
+        
+    </div>
+
+</div>
+
+<app-footer></app-footer>

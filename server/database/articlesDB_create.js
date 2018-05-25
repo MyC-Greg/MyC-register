@@ -6,7 +6,10 @@ const config = require('../config/database')
 
 const Article = require('../models/article_model');
 
-const GDAArticles = require('../resources/articles/GDAarticles');
+const GDEArticles = require('../resources/articles/GDEArticles');
+const APArticles = require('../resources/articles/APArticles');
+const nutritionArticles = require('../resources/articles/nutritionArticles');
+
 
 const Picture = require('../models/picture_model');
 const Grid = require('gridfs-stream');
@@ -21,6 +24,9 @@ mongoose.Promise = global.Promise;
         console.warn('Warning', error);
       });
       
+      const mycArticles = [APArticles, GDEArticles, nutritionArticles].reduce((a,b) => {
+        return a.concat(b);
+    },[]);
 
       async function generateDatabase() {
         try {
@@ -38,7 +44,7 @@ mongoose.Promise = global.Promise;
         };
 
         try {
-            await Article.insertMany(GDAArticles);
+            await Article.insertMany(mycArticles);
            
         } catch(error) {
             console.log('error on creating databases', error)
@@ -54,7 +60,7 @@ mongoose.Promise = global.Promise;
             })
             .then((articles) => {
                 articles.map(article => {
-                    Picture.findById({ _id: "5b06789e4187ee13881ad80f"}, function(err, picture) {
+                    Picture.findById({ _id: "5b08516eb79191540ecae87a"}, function(err, picture) {
                         if (err) {
                             console.log('error in finding picture', err)
                         }
@@ -71,7 +77,7 @@ mongoose.Promise = global.Promise;
                         }  
                     });
 
-                    Picture.findById({ _id: "5b06789e4187ee13881ad810"}, function(err, picture) {
+                    Picture.findById({ _id: "5b08516eb79191540ecae87b"}, function(err, picture) {
                         if (err) {
                             console.log('error in finding picture', err)
                         }
@@ -87,6 +93,75 @@ mongoose.Promise = global.Promise;
                             }
                         }  
                     });
+
+                    Picture.findById({ _id: "5b08516eb79191540ecae87d"}, function(err, picture) {
+                        if (err) {
+                            console.log('error in finding picture', err)
+                        }
+                    if (!picture) {
+                            console.log('no picture found')
+                        }
+                    }).then((picture) => {
+                        if(picture) {
+                            if(article.title === 'Nutrition pendant le cancer') {
+                                console.log('Media found', picture)
+                                article.img = picture;
+                                article.save();
+                            }
+                        }  
+                    });
+
+                    Picture.findById({ _id: "5b08516eb79191540ecae87c"}, function(err, picture) {
+                        if (err) {
+                            console.log('error in finding picture', err)
+                        }
+                    if (!picture) {
+                            console.log('no picture found')
+                        }
+                    }).then((picture) => {
+                        if(picture) {
+                            if(article.title === 'Alimentation, nutrition et cancer') {
+                                console.log('Media found', picture)
+                                article.img = picture;
+                                article.save();
+                            }
+                        }  
+                    });
+
+                    Picture.findById({ _id: "5b08516eb79191540ecae878"}, function(err, picture) {
+                        if (err) {
+                            console.log('error in finding picture', err)
+                        }
+                    if (!picture) {
+                            console.log('no picture found')
+                        }
+                    }).then((picture) => {
+                        if(picture) {
+                            if(article.title === 'Les bienfaits de la méditation') {
+                                console.log('Media found', picture)
+                                article.img = picture;
+                                article.save();
+                            }
+                        }  
+                    });
+
+                    Picture.findById({ _id: "5b08516eb79191540ecae879"}, function(err, picture) {
+                        if (err) {
+                            console.log('error in finding picture', err)
+                        }
+                    if (!picture) {
+                            console.log('no picture found')
+                        }
+                    }).then((picture) => {
+                        if(picture) {
+                            if(article.title === 'Les bienfaits de la méditation - cancer colorectal') {
+                                console.log('Media found', picture)
+                                article.img = picture;
+                                article.save();
+                            }
+                        }  
+                    });
+
                 })
             })
         } catch (error) {

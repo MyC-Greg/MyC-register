@@ -34,7 +34,7 @@ const appRoutes: Routes = [
     { path: 'activitePhysique', component: ActivitePhysiqueComponent},
     { path: 'gestionDesEmotions', component: GestionDesEmotionsComponent},
     { path: 'motivations', component: MotivationComponent},
-    { path: 'article', component: ArticleComponent}
+    { path: ':programmeType/article/:id/:title/:pilar', component: ArticleComponent}
   ]}
 ];
 

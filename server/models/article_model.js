@@ -18,6 +18,9 @@ const ArticleSchema = new Schema({
         type: String,
         required: true
     },
+    pilar: {
+        type: String
+    },
     img: {
         type: Schema.Types.ObjectId,
         ref: 'pictures'
