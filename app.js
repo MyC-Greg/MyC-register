@@ -1,4 +1,3 @@
-
 require('zone.js/dist/zone-node');
 require('reflect-metadata');
 const express = require('express');
@@ -35,6 +34,7 @@ const app = express();
 
 const usersAuth = require('./server/routes/usersAuth_route');
 const articles = require('./server/routes/articles_route');
+const bios = require('./server/routes/bios_route');
 
 
 // Port Number
@@ -48,6 +48,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/usersAuth', usersAuth);
 app.use('/articles', articles);
+app.use('/bios', bios);
 
 
 // Index Route

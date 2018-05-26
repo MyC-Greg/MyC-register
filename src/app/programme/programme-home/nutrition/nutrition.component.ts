@@ -1,16 +1,17 @@
-import { GetArticlesService } from './../../services/getArticles.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpEvent } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
+import { GetArticlesService } from '../../../services/getArticles.service';
 
 @Component({
-  selector: 'app-activitephysique',
-  templateUrl: './activitePhysique.component.html',
-  styleUrls: ['./activitePhysique.component.scss']
+  selector: 'app-nutrition',
+  templateUrl: './nutrition.component.html',
+  styleUrls: ['./nutrition.component.scss']
 
 })
-export class ActivitePhysiqueComponent implements OnInit {
-  pilar: String = 'AP';
+
+export class NutritionComponent implements OnInit {
+  pilar: String = 'nutrition';
   articles;
 
   constructor(private getArticlesService: GetArticlesService,
@@ -18,14 +19,14 @@ export class ActivitePhysiqueComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log(this.getArticlesService.APArticles.length);
-      if (this.getArticlesService.APArticles === undefined || this.getArticlesService.APArticles.length === 0 ) {
+    console.log(this.getArticlesService.nutritionArticles.length);
+      if (this.getArticlesService.nutritionArticles.length === 0 ) {
       this.getArticlesService.getArticles(this.pilar).subscribe(articles => {
         this.articles = articles;
         console.log(articles);
       });
     } else {
-      this.articles = this.getArticlesService.APArticles;
+      this.articles = this.getArticlesService.nutritionArticles;
     }
   }
 

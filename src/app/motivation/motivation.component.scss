@@ -1,17 +1,17 @@
 .bigContainer {
-    // padding-top: 100px;
-    padding: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     margin: 0;
     min-width: 100%;
-    // display: flex;
-    // flex-wrap: wrap;
 }
 
 .jumbotron {
         background-image: url("/assets/images/overlay.png"), url("/assets/images/header.svg"), linear-gradient(75deg, #FF7088 32%, #F2B69D 70%);
         // background-image: url("/assets/images/ie/content-style1.svg");
+}
 
-
+.container {
+    padding-top: 2rem;
 }
 
 .card-deck {

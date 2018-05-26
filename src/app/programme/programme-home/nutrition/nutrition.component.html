@@ -11,7 +11,7 @@
           </div>
         </section>
 
-      
+    <div class="container">
       <div class="card-deck">
         <div class="card col-md-4 col-xl-3" *ngFor="let article of articles, let i = index">
         
@@ -23,8 +23,7 @@
             <a class="btn btn-primary" (click)="onNavigate(article._id, article.title, article.pilar)">Lisez l'article</a>
           </div>
         </div>
-        
-        
+      </div>
     </div>
 
 </div>

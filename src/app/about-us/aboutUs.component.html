@@ -1,0 +1,35 @@
+<app-header></app-header>
+
+
+  <div class="bigContainer">
+
+      <section class="jumbotron text-center">
+          <div class="container">
+            <h1 class="jumbotron-heading">Album example</h1>
+            <p class="lead" id="subtitle">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+
+          </div>
+        </section>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-xl-4" *ngFor="let bio of bios, let i = index">
+                    <div class="card" >
+                    <img class="card-img-top" src="{{bio.url}}" alt="Card image cap">
+                        <div class="card-body">
+                        <h5 class="card-title" >{{bio.names}}</h5>
+                        <p class="card-text">{{bio.subtitle}}</p>
+                        <!-- <p class="card-text">{{bio.content}}</p> -->
+                        <div class="card-text" [innerHtml]="content[i] | keepHtml"></div>
+                        </div>
+                      <!-- <p class="card-text">{{bio.content}}</p> -->
+                    </div>
+                </div>        
+            </div>
+        </div>
+</div>
+
+<app-footer></app-footer>
+
+
+  

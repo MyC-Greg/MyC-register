@@ -2,38 +2,41 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { RegisterComponent } from './register/register.component';
 import { FooterComponent } from './footer/footer.component';
-import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
-
-import { Routes, RouterModule } from '@angular/router';
+import { MainComponent } from './home/main/main.component';
+import { RegisterComponent } from './home/register/register.component';
+import { MotivationComponent } from './motivation/motivation.component';
+import { ProgrammeHomeComponent } from './programme/programme-home/programmeHome.component';
+import { ProgrammeComponent } from './programme/programme.component';
+import { ArticleComponent } from './programme/programme-home/article/article.component';
+import { GestionDesEmotionsComponent } from './programme/programme-home/gestion-des-emotions/gestionDesEmotions.component';
+import { ActivitePhysiqueComponent } from './programme/programme-home/activite-physique/activitePhysique.component';
+import { AboutUsComponent } from './about-us/aboutUs.component';
 
 import { AuthService } from './services/auth.service';
 import { ConfigService } from './services/config.service';
 import { GetArticlesService } from './services/getArticles.service';
+import { GetBiosService } from './services/getBios.service';
 
-import { ProgrammeComponent } from './programme/programme.component';
-import { ProgrammeHomeComponent } from './programme/programme-home/programmeHome.component';
-import { ActivitePhysiqueComponent } from './programme/activite-physique/activitePhysique.component';
-import { NutritionComponent } from './programme/nutrition/nutrition.component';
-import { GestionDesEmotionsComponent } from './programme/gestion-des-emotions/gestionDesEmotions.component';
-import { MotivationComponent } from './motivation/motivation.component';
-import { ArticleComponent } from './programme/article/article.component';
+
 import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
+import { NutritionComponent } from './programme/programme-home/nutrition/nutrition.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'home', component: HomeComponent},
+  { path: 'motivations', component: MotivationComponent},
+  { path: 'aboutus', component: AboutUsComponent},
   { path: 'programme', component: ProgrammeComponent, children: [
     { path: '', component: ProgrammeHomeComponent},
     { path: 'nutrition', component: NutritionComponent},
     { path: 'activitePhysique', component: ActivitePhysiqueComponent},
     { path: 'gestionDesEmotions', component: GestionDesEmotionsComponent},
-    { path: 'motivations', component: MotivationComponent},
     { path: ':programmeType/article/:id/:title/:pilar', component: ArticleComponent}
   ]}
 ];
@@ -53,7 +56,8 @@ const appRoutes: Routes = [
     GestionDesEmotionsComponent,
     MotivationComponent,
     ArticleComponent,
-    EscapeHtmlPipe
+    EscapeHtmlPipe,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -64,7 +68,8 @@ const appRoutes: Routes = [
   providers: [
     AuthService,
     ConfigService,
-    GetArticlesService
+    GetArticlesService,
+    GetBiosService
   ],
   bootstrap: [AppComponent]
 })

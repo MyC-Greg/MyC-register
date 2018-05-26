@@ -1,8 +1,8 @@
 import { ActivatedRoute } from '@angular/router';
-import { GetArticlesService } from './../../services/getArticles.service';
 import { Component, OnInit } from '@angular/core';
 // import { HttpEvent } from '@angular/common/http';
-import { Article } from '../../model/article.model';
+import { GetArticlesService } from './../../../services/getArticles.service';
+import { Article } from './../../../model/article.model';
 
 @Component({
   selector: 'app-article',
