@@ -1,9 +1,17 @@
 <div id="register" class="container">
   <div class="subContainer .col-xs-10 .col-md-6">
     <div class="header">
-    <h2 class="titleRegister">L’app myCharlotte va bientôt arriver!</h2>
-    <p>Vous ou l’une de vos proches est atteinte d’un cancer du sein ?</p>
-    <p id="secondLine">En attendant l’arrivée de l’App myCharlotte,<br/>inscrivez-vous à la newsletter et recevez conseils et vidéos <br/>pour vous aider à prendre en main votre qualité de vie.</p>
+    <h2 class="titleRegister">myCharlotte commence la phase test!</h2>
+    <p class="secondaryTitle">Vous est atteinte d’un cancer du sein et souhaitez diminuer l'impact des traitements sur votre corps et votre esprit?</p>
+    <p class="secondLine"><span style="color: #f48fb1">myCharlotte</span> vous met à disposition des exercices dont l'efficacité a été démontrée lors de nombreux essais cliniques et vous guide pas à pas dans leur réalisation.</p>
+    <p class="secondLine">Tous les jours, vous aurez accès à des enregistrements audios et vidéos de Pilates, de Yoga, d'exercices de respiration profonde, d'exercices de relaxation ainsi que des méditations pour mieux appréhender les effets secondaires parmi lesquels: <br> fatigue chimiothérapique, nausées, symptômes dépressifs, troubles du sommeil, problèmes articulaires,  etc.</p>
+
+    <p class="secondLine">Nous cherchons un nombre limité de femmes en cours de traitement ou en rémission qui souhaitent s'impliquer dans le développement d'un outil utile pour toutes celles qui, comme nous, ont à subir les conséquences des traitements.</p>
+    <p class="secondLine">Pendant cette phase test d'une durée initiale de 3 mois, vous disposez gratuitement de l'application web et mobile <span style="color: #f48fb1">myCharlotte</span> pour effectuer régulièrement les exercices proposés.</p>
+    <p class="secondLine">Nous limitons le nombre de participantes afin d'être disponibles pour échanger sur les activités et les fonctionnalités existantes, en suggérer de nouvelles et signaler les dysfonctionnements potentiels.</p>
+    <p class="secondLine">L'application sera disponible dans le courant du mois de novembre. Vous recevrez un lien d'accès au moment du lancement.</p>
+    <p class="conclusion">Nous nous réjouissons de pouvoir construire ensemble un outil adapté aux besoins de chacune.</p>
+
     </div>
     <div class="content">
     <form   class="login-form" 
@@ -44,8 +52,17 @@
                 autocapitalize="off">
                 <span *ngIf="!myForm.get('email').valid && myForm.get('email').touched"
                       class="help-block"
-                >Il nous faut un email pour vous envoyer la newsletter!</span>
-        <p class="interestTitle">Vous êtes intéressé parce que:</p>
+                >Il nous faut un email pour vous envoyer le lien d'accès!</span>
+        <input  type="email" 
+                class="form-control" 
+                placeholder="Confirmez votre adresse E-Mail" 
+                aria-label="email"
+                formControlName="confirmeEmail"
+                autocapitalize="off">
+                <span *ngIf="!myForm.get('email').valid && myForm.get('email').touched"
+                      class="help-block"
+        >Il nous faut un email pour vous envoyer le lien d'accès!</span>
+        <p class="interestTitle">Vous êtes atteinte d'un cancer du sein et vous:</p>
         <div class="radio" *ngFor="let interest of interests">
           <label>
             <input  type="radio" 
@@ -112,7 +129,7 @@
                   <h5>C'est bon!</h5>
                 </div>
                   <div class="modal-body">
-                      <p>Nous vous avons envoyé une confirmation d'inscription à la newsletter par email. Vous serez les premiers informés quand l’App sera disponible!</p>
+                      <p>Nous vous avons envoyé une confirmation d'inscription à la phase test par email. Vous recevrez le lien d'inscription à cette même adresse.</p>
                   </div>
 
                   <div class="modal-footer">

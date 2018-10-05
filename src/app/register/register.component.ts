@@ -19,10 +19,9 @@ export class RegisterComponent implements OnInit {
   isAlert: boolean;
   isSpinner: boolean;
   isError: boolean;
-  interests = ['Vous êtes atteinte d\'un cancer du sein',
-              'Vous êtes atteinte d\'un autre cancer',
-              'Une de vos proches est atteinte d\'un cancer du sein',
-              'Le sujet vous intéresse'];
+  interests = ['venez d\'être diagnostiquée',
+              'Êtes en cours de traitement',
+              'Êtes en rémission'];
 
   constructor(private authService: AuthService) { }
 
@@ -35,10 +34,17 @@ export class RegisterComponent implements OnInit {
     //     Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
     // ]),
       email: new FormControl(null, Validators.email),
+      confirmeEmail: new FormControl(null, [Validators.required, this.confirmEmailEquality.bind(this)]),
       country: new FormControl(null),
       city: new FormControl(null),
       interest: new FormControl(null, Validators.required)
     });
+  }
+
+  confirmEmailEquality(control: FormControl): {[s: string]: boolean} {
+    if (this.myForm) {
+      return control.value === this.myForm.get('email').value ? null : {'Les emails ne sont pas identiques': true};
+  }
   }
 
   closeModal() {

@@ -37,7 +37,8 @@ h2 {
     padding-bottom: 1.7vh;
     @media screen and (max-width: 480px) {
         font-size: 1.75em;
-    }    
+    }  
+    color: #f48fb1;  
 }
 
 p {
@@ -79,8 +80,17 @@ input.ng-invalid.ng-touched {
     color: lightpink;
 }
 
-#secondLine {
+.secondLine {
     margin-top: 2vh;
+}
+
+.secondaryTitle {
+    font-weight: 600;
+   padding-bottom: 2vh;
+}
+
+.conclusion {
+    color: #f48fb1;
 }
 
 .form-control {
@@ -122,7 +132,7 @@ button {
 
 .btn-light {
     color: #fff;
-    background: #3d3d3d;
+    background: #f48fb1;
     letter-spacing: .5px;
     border-style: none;
 }
