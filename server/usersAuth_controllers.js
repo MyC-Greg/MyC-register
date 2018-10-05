@@ -53,7 +53,7 @@ module.exports = {
                 from: {name: 'Charlotte', address: 'charlotte@mycharlotte.fr'},
                 to: user.email,
                 subject: 'Bienvenue chez myCharlotte',
-                text: 'Merci beaucoup de vous être inscrit! A bientôt pour les premiers conseils et activités.'
+                text: 'Merci beaucoup de vous être inscrit! Nous travaillons d\'arrache-pied pour finaliser la version de test de l\'application pour que vous puissiez en profiter le plus vite possible. /n/n En attendant et pour mieux connaître le projet, vous pouvez lire ces 2 articles que j\'ai écrit pour présenter le projet:/n https://medium.com/mycharlotte/cancer-du-sein-mycharlotte-transmet-une-approche-pour-retrouver-le-sourire-8c033b0f9265 /n/n et celui-ci:/n https://medium.com/mycharlotte/agir-quand-le-ciel-vous-tombe-sur-la-tête-3106053d1988 /n/n Vous pouvez également aller voir la page Facebook pour vous tenir au courant des évolutions du projet avant le lancement de la phase test: /n https://www.facebook.com/myCharlotteCancer /n/n À très bientôt! /n/n Charlotte '
               };
         
               transporter.sendMail(mailOptions, function(error, info){
