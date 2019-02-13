@@ -19,7 +19,7 @@ module.exports = {
                         } else {
                             console.log('user', user)
                                 res.status(200).json({
-                                message: 'This email address seems to be already registered, try another one.',
+                                message: 'Il semblerait que vous soyez déjà enregistrée.',
                                 obj: user
                             });
                         }

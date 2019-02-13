@@ -1,8 +1,10 @@
+
+// tslint:disable-next-line:import-blacklist
+import {throwError as observableThrowError} from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-
-import { Observable } from 'rxjs/Rx';
-import 'rxjs/add/operator/catch';
+// import {  } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 import { User } from './../model/user.model';
 
@@ -19,13 +21,13 @@ serverUrl = this.configService.serverURL;
     checkEmail(email) {
         // console.log(email);
         return this.http.get<any>(`${this.serverUrl}usersAuth/checkEmail/${email}`, {observe: 'response'})
-        .map((response) => {
+        .pipe(map((response) => {
             // console.log(response.status);
             let bool;
             response.status === 204 ? bool = true : bool = false;
             return bool;
-        })
-        .catch((error: HttpErrorResponse) => Observable.throw(error));
+        }), catchError((error: HttpErrorResponse) => observableThrowError(error))
+        );
         }
 
     signup(user: User) {
@@ -34,8 +36,8 @@ serverUrl = this.configService.serverURL;
         // .map((response) => {
         //     console.log(response);
         // })
-            .catch((error) => {
-                    return Observable.throw(error);
-            });
+            .pipe(catchError((error) => {
+                return observableThrowError(error);
+        }));
     }
 }
