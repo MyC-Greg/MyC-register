@@ -1,10 +1,10 @@
 {
   "name": "myc-register",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "scripts": {
     "start": "node app.js",
-    "build:ssr": "ng build --prod && ng build --prod --output-hashing=none"
+    "build:ssr": "ng build --prod && ng build --prod --app 1 --output-hashing=none"
   },
   "engines": {
     "node": "10.15.1",
